@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <script src="js/jquery-1.11.3.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/jquery.ncs.js"></script>
+        <script src="js/wow.min.js"></script>
+        
+        <link rel="stylesheet" href="css/animate.css">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+
+        <script>
+              new WOW().init();
+        </script>
+        
+        <style>
+            body
+            {
+                overflow-x: hidden;
+            }
+            
+            h1 
+            {
+            text-align: center;
+            text-shadow: -8px -8px 0px rgba(0,0,0,0.3), 8px 8px 0px rgba(0,0,0,0.8);
+            color: #fff;
+            font: 700 60px 'Bitter';
+            font-family: cursive;
+            }
+            
+            #myCarousel .nav a small 
+            {
+                display:block;
+            }
+            
+            #myCarousel .nav 
+            {
+                background:#eee;
+            }
+            
+            #myCarousel .nav a 
+            {
+                border-radius:0px;
+            }
+
+            @media (min-width: 768px)
+              .nav-justified>li {
+                display: table-cell;
+                width: 1%;
+            }
+            
+            .heading 
+            {
+                background: url('Images/HeadingBackground.jpg') repeat;
+                background-size: cover;
+                background-position: 50% 50%;
+                width:100%;
+                position: relative;
+                color: #fff;
+                height:1100px;
+            }
+            
+            #slideshow 
+            {
+                margin: 50px auto;
+                position: relative;
+                width: 600px;
+                height: 400px;
+                padding: 10px;
+                box-shadow: 0 0 20px rgba(0,0,0,0.4);
+            }
+
+            #slideshow > div 
+            {
+                position: absolute;
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+             }
+            
+            #mainPanel
+            {
+                width:40%;
+                text-align:center;
+                margin-left:55%;
+                background: url('Images/HeadingPanelBackground.jpg') repeat;
+                border-radius:40px;
+                opacity:1;
+            }
+            
+            .education
+            {
+                height:900px;
+                background:url('Images/EducationBackground.jpg') repeat;
+            }
+                        
+            #work
+            {
+                 height:900px;
+                 background:url('Images/workBackground.jpg') repeat;
+            }
+            
+            #myName
+            {
+                opacity:1;
+                color:#555;
+                font-size:80px;
+                font-weight:bold;"
+            }
+            
+            @media (max-width: 450px) and (min-width: 0px)
+            {
+                #mainPanel
+                {
+                    width:85%;
+                    text-align:center;
+                    margin-left:30px;
+                    margin-right:30px;
+                    border-radius:40px;
+                    opacity:1;
+                    background: url('Images/HeadingPanelBackground.jpg') repeat;
+                }
+            }
+            
+            @media (max-width:800px) and (min-width:450px)
+            {
+                #mainPanel
+                {
+                    width:90%;
+                    text-align:center;
+                    margin-left:30px;
+                    margin-right:30px;
+                    border-radius:40px;
+                    opacity:1;
+                    background: url('Images/HeadingPanelBackground.jpg') repeat;
+                }
+            }
+            
+            @media (max-width: 800px) and (min-width: 0px)
+            {   
+                #heading
+                {
+                    background-image: none;
+                    background-color: black;
+                    height:700px;
+                }
+                
+                h1
+                {
+                    text-align: center;
+                    text-shadow: -8px -8px 0px rgba(0,0,0,0.3), 8px 8px 0px rgba(0,0,0,0.8);
+                    color: #fff;
+                    font: 100 20px 'Bitter';
+                    font-family: cursive;
+                }
+                
+                #myName
+                {
+                    opacity:1;
+                    color:#555;
+                    font-size:50px;
+                    font-weight:bold;"
+                }
+                
+                .education
+                {
+                   height:1700px;
+                }
+                
+                #work
+                {
+                    height:1900px;
+                }
+                
+                #ir>ul>li, #ma>ul>li, #rd>ul>li, #gpr>ul>li
+                {
+                    padding-right:20px;
+                }
+                
+                #vit>ul>li, #wd>ul>li, #rupert>ul>li
+                {
+                    padding-right:20px;
+                    font-size:22px;
+                }
+                
+                #wdLink, #vitLink, #rupertLink
+                {
+                    font-size:16px;
+                }
+            }
+            
+            #mainPanel:hover
+            {
+                    -webkit-animation: pulse 1s;
+                    animation: pulse 1s;
+            }
+            
+            nav>ul>li:hover
+            {
+                    -webkit-animation: pulse 1s;
+                    animation: pulse 1s;
+            }
+            
+            nav 
+            {
+                  background-color: #333;
+                  border: 1px solid #000;
+                  border-radius: 4px;
+                  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+                  color: #888;
+                  display: block;
+                  margin: 8px 22px 8px 22px;
+                  overflow: hidden;
+                  width: 100%; 
+                  opacity: 0.6;
+                  filter: alpha(opacity=60);
+                  margin-right:20px;
+                  margin-left:0px;
+                  margin-top:0px;
+            }
+
+            nav ul 
+            {
+                 margin: 0;
+                 padding: 0;
+            }
+
+            nav ul li 
+            {
+                display: inline-block;
+                list-style-type: none;
+                -webkit-transition: all 0.2s;
+                -moz-transition: all 0.2s;
+                -ms-transition: all 0.2s;
+                -o-transition: all 0.2s;
+                transition: all 0.2s; 
+            }
+      
+            nav > ul > li > a > .caret 
+            {
+                border-top: 4px solid #aaa;
+                border-right: 4px solid transparent;
+                border-left: 4px solid transparent;
+                content: "";
+                display: inline-block;
+                height: 0;
+                width: 0;
+                vertical-align: middle;
+                -webkit-transition: color 0.1s linear;
+                -moz-transition: color 0.1s linear;
+                -o-transition: color 0.1s linear;
+                transition: color 0.1s linear; 
+            }
+
+            nav > ul > li > a 
+            {
+                color: #fff;
+                display: block;
+                line-height: 56px;
+                padding: 0 24px;
+                text-decoration: none;
+            }
+
+            nav > ul > li:hover 
+            {
+                background-color: rgb( 150, 150, 150 );
+            }
+
+            nav > ul > li:hover > a 
+            {
+                color: rgb( 255, 255, 255 );
+            }
+
+            nav > ul > li:hover > a > .caret 
+            {
+                border-top-color: rgb( 255, 255, 255 );
+            }
+      
+            nav > ul > li > div 
+            {
+                background-color: rgb( 40, 44, 47 );
+                border-top: 0;
+                border-radius: 0 0 4px 4px;
+                box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.055);
+                display: none;
+                margin: 0;
+                opacity: 0;
+                position: absolute;
+                width: 165px;
+                visibility: hidden;
+
+                -webkit-transiton: opacity 0.2s;
+                -moz-transition: opacity 0.2s;
+                -ms-transition: opacity 0.2s;
+                -o-transition: opacity 0.2s;
+                -transition: opacity 0.2s;
+            }
+
+            nav > ul > li:hover > div 
+            {
+                  display: block;
+                  opacity: 1;
+                  visibility: visible;
+            }
+
+            nav > ul > li > div ul > li 
+            {
+                 display: block;
+            }
+
+            nav > ul > li > div ul > li > a 
+            {
+                  color: #fff;
+                  display: block;
+                  padding: 12px 24px;
+                  text-decoration: none;
+            }
+
+            nav > ul > li > div ul > li:hover > a 
+            {
+                background-color: rgba( 255, 255, 255, 0.7);
+            }
+
+            .tabHeader 
+            {
+                  color: white;
+                  text-shadow:
+                   -1px -1px 0 #000,  
+                    1px -1px 0 #000,
+                    -1px 1px 0 #000,
+                     1px 1px 0 #000;
+                  font-size:24px;
+                  font-family: cursive;
+                  font-style: italic;
+            }
+            
+            .aboutMe
+            {
+                font-size:24px;
+                font-family: cursive;
+                color:gray;
+                line-height: 40px;
+            }
+            
+            .infoAboutMe
+            {
+                font-size:30px;
+                font-family: cursive;
+                color:gray;
+                line-height: 50px;
+            }
+            .btn-xl 
+            {
+                  padding: 15px 30px;
+            }
+            
+            .btn-primary 
+            {
+                  color: #ffffff;
+                  background-color: #f05f40;
+                  border-color: #f05f40;
+                  -webkit-transition: all 0.35s;
+                  -moz-transition: all 0.35s;
+                  transition: all 0.35s;
+                  background-image: none;
+            }
+            
+            .btn 
+            {
+                  font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
+                  border: none;
+                  border-radius: 300px;
+                  font-weight: 700;
+                  font-size:25px;
+                  text-transform: uppercase;
+            }
+            
+            .btn-primary:hover,
+            .btn-primary:focus,
+            .btn-primary.focus,
+            .btn-primary:active,
+            .btn-primary.active,
+            .open > .dropdown-toggle.btn-primary {
+              color: #ffffff;
+              background-color: #ee4b28;
+              border-color: #ed431f;
+            }
+            .btn-primary:active,
+            .btn-primary.active,
+            .open > .dropdown-toggle.btn-primary {
+              background-image: none;
+            }
+            .btn-primary.disabled,
+            .btn-primary[disabled],
+            fieldset[disabled] .btn-primary,
+            .btn-primary.disabled:hover,
+            .btn-primary[disabled]:hover,
+            fieldset[disabled] .btn-primary:hover,
+            .btn-primary.disabled:focus,
+            .btn-primary[disabled]:focus,
+            fieldset[disabled] .btn-primary:focus,
+            .btn-primary.disabled.focus,
+            .btn-primary[disabled].focus,
+            fieldset[disabled] .btn-primary.focus,
+            .btn-primary.disabled:active,
+            .btn-primary[disabled]:active,
+            fieldset[disabled] .btn-primary:active,
+            .btn-primary.disabled.active,
+            .btn-primary[disabled].active,
+            fieldset[disabled] .btn-primary.active {
+              background-color: #f05f40;
+              border-color: #f05f40;
+            } 
+            
+            .bg-primary {
+              background-color: #f05f40;
+            }
+            
+            #background {
+                background: url('Images/myBackground.jpg') repeat;
+            }
+             #topNav.affix {
+                background-color: black;
+                border-color: rgba(34, 34, 34, 0.05);
+              }
+              #topNav.affix .navbar-header .navbar-brand {
+                color: #f05f40;
+                font-size: 14px;
+              }
+              #topNav.affix .navbar-header .navbar-brand:hover,
+              #topNav.affix .navbar-header .navbar-brand:focus {
+                color: #eb3812;
+              }
+              #topNav.affix .nav > li > a,
+              #topNav.affix .nav > li > a:focus {
+                color: #222222;
+              }
+              #topNav.affix .nav > li > a:hover,
+              #topNav.affix .nav > li > a:focus:hover {
+                color: #f05f40;
+              }
+            
+            #educationalOptions
+            {
+                background-color: black;
+                opacity:0.8;
+            }
+            
+            #educationalOptions>li
+            {
+                color:white;
+                font-family:cursive;
+                height:60px;
+                font-size:20px;
+                font-style: italic;
+            }
+            
+            #educationalOptions>li : hover
+            {
+                    -webkit-animation: pulse 1s;
+                    animation: pulse 1s;
+            }
+            
+            #educationalOptions>li>a
+            {
+                width:100%;
+                height:100%;
+            }
+            
+            #educationalOptions>li>a:hover
+            {
+                border-radius: 20px;
+                background-color: white;
+            }
+            
+            #educationalOptions>li>a:focus
+            {
+                border-radius: 20px;
+                background-color: white;
+            }
+            #educationalOptions>li.active>a
+            {
+                border-radius: 20px;
+                background-color: white;
+            }
+            
+            #ir,#ma,#rd,#gpr,#vit,#wd, #rupert
+            {
+                background-color: black;
+                opacity:0.6;
+                border-radius:20px;
+                text-align:center;
+            }
+            
+
+            .tab-content
+            {
+                color:white;
+                font-family: cursive;
+            }
+
+            
+            #contact
+            {
+                background:url('Images/contactBackground.jpe') repeat;
+            }
+            
+            #aboutMeBtn:hover
+            {
+                    -webkit-animation: pulse 1s;
+                    animation: pulse 1s;
+            }
+            
+            #viewMyBackground:hover
+            {
+                    -webkit-animation: pulse 1s;
+                    animation: pulse 1s;
+            }
+            
+            #about:hover, #background:hover, #education:hover,#work:hover,#contact:hover
+            {
+                    -webkit-animation: pulse 1s;
+                    animation: pulse 1s;
+            }
+            
+        </style>
+        <script>
+            // Offset for Main Navigation
+            $('#topNav').affix({
+                offset: {
+                    top: 100
+                }
+            })
+            $(document).ready(function() {
+                $("#content").find("[id^='tab']").hide(); // Hide all content
+                $("#tabs li:first").attr("id","current"); // Activate the first tab
+                $("#content #tab1").fadeIn(); // Show first tab's content
+
+                $('#tabs a').click(function(e) {
+                    e.preventDefault();
+                    if ($(this).closest("li").attr("id") == "current"){ //detection for current tab
+                     return;       
+                    }
+                    else{             
+                      $("#content").find("[id^='tab']").hide(); // Hide all content
+                      $("#tabs li").attr("id",""); //Reset id's
+                      $(this).parent().attr("id","current"); // Activate this
+                      $('#' + $(this).attr('name')).fadeIn(); // Show content for the current tab
+                    }
+                });
+            });
+            $('a.page-scroll').bind('click', function(event) {
+                        var $anchor = $(this);
+                        $('html, body').stop().animate({
+                            scrollTop: ($($anchor.attr('href')).offset().top - 50)
+                        }, 1250, 'easeInOutExpo');
+                        event.preventDefault();
+                    });
+            $("#slideshow > div:gt(0)").hide();
+
+            setInterval(function () {
+                $('#slideshow > div:first')
+                  .fadeOut(1000)
+                  .next()
+                  .fadeIn(1000)
+                  .end()
+                  .appendTo('#slideshow');
+            }, 3000);
+            
+            $('#test').click(function(){
+                
+                        $('#topNav').removeClass('navbar-fixed-top').addClass("navbar navbar-default navbar-fixed-top");
+            });
+            
+            function scrollUpDown(button)
+            {
+                        var $anchor = $(button);
+                        $('html, body').stop().animate({
+                            scrollTop: ($($anchor.attr('href')).offset().top - 57)
+                        }, 1250, 'easeInOutExpo');
+                        event.preventDefault();
+            }
+            
+        </script>
+    </head>
+    <body>
+        
+        <div class="row">
+            <div class="col-md-12">
+        <section class="heading" id="heading">
+                    <nav id="topNav" style="width:100%;" class="navbar-fixed-top navbar-right collapse navbar-collapse animated fadeInDown">    
+                          <ul>
+                            <li class="tabHeader"><a class="page-scroll" href="#heading" onClick="scrollUpDown(this)">Home</a></li>
+                            <li class="tabHeader"><a class="page-scroll" href="#about" onClick="scrollUpDown(this)">About</a></li>
+                            <li class="tabHeader"><a class="page-scroll" href="#background" onClick="scrollUpDown(this)">Background</a></li>
+                            <li class="tabHeader"><a class="page-scroll" href="#education" onClick="scrollUpDown(this)">Projects</h4></a></li>
+                            <li class="tabHeader"><a class="page-scroll" href="#work" onClick="scrollUpDown(this)">Work Experience</a></li>
+                            <li class="tabHeader"><a class="page-scroll" href="#contact" onClick="scrollUpDown(this)">Contact</a></li>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="row animated zoomInDown" style="text-align:center;padding-top:12%;">
+                    <div class="col-md-6" id="mainPanel"><br><br>
+                    <h1 id="myName" class="animated slideInRight">Harish Narayanan</h1>
+                    <hr class="light" style="border-width: 3px;max-width: 50px;border-color:#f05f40;">
+                    <i><p class="infoAboutMe" style="color:#fff;">Graduate Student at USC<br />Passionate Web/Application Developer</p></i>
+                    <a href="#about" id="aboutMeBtn" class="btn btn-primary btn-xl page-scroll" onClick="scrollUpDown(this)" style="margin-bottom:10%;margin-top:5%;font-family:cursive;font-size:30px;">About Me</a>
+                    </div></div>
+        </section>
+        </div>
+<div class="col-md-12">
+    <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12" id="me" style="margin-top:30px;text-align:center;">
+                    <h2 id="test" class="section-heading wow animated fadeInRight" style="font-family:cursive;font-size:50px;text-align:center;">About Me</h2>
+                    <hr class="light" style="border-width: 3px;max-width: 50px;">
+                    <p class="text-faded wow animated rubberBand" style="font-family:cursive;font-size:22px;text-align:justify;padding-right:0px;">I am a Graduate Student at University of Southern California (USC) where I am pursuing Master of Science (MS) in Computer Science. I have about 4 years of industry experience (Volvo IT) where I was working more in the Application Development domain. Currently, I am part of the USC Web development team. Over the years, I have been exposed to a wide range of programming languages, be it through personal interest or academic projects. Above all, I am a passionate web/app developer who loves to experiment with designs. Apart from programming, I love playing ping-pong and an avid follower of a range of sports.</p>
+                    <a href="#background" id="viewMyBackground" class="page-scroll btn btn-default btn-xl sr-button wow animated fadeInLeft" style="margin-bottom:40px;margin-top:20px;font-family:cursive;" onClick="scrollUpDown(this)">View my Background</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+        <div class="col-md-12">
+        <section id="background" style="height:900px;">
+        <div class="container">
+            <div class="row" style="margin-bottom:30px;">
+                <div class="col-lg-12 text-center" style="margin-top:30px;">
+                    <h2 class="section-heading wow animated fadeInLeft" style="font-family:cursive;font-size:50px;color:white;">Background</h2>
+                    <hr class="light wow animated bounceInDown" style="border-width: 3px;max-width: 50px;">
+                    <div class="col-lg-12 text-center"  style="height:400px;margin-top:20px;">
+            <div id="myCarousel" class="carousel slide wow animated rubberBand" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+
+              <div class="carousel-inner wow animated fadeInRight" role="listbox">
+                <div class="item active" style="height:600px;">
+                  <img src="Images/USC_Bovard_Auditorium.jpg" height="100%" alt="USC Provost" align="middle">
+                          <div class="carousel-caption" style="background-color:#000;font-family:cursive;float:right;margin:0px;border-radius:10px;opacity:0.8;">
+                            <h4>Graduate Student - Computer Science - USC</h4>
+                            <p>Aug 2015 - May 2017</p>
+                         </div>
+                </div>
+                  
+                <div class="item" style="height:600px;">
+                  <img src="Images/Doheny.jpg" height="100%" alt="USC Viterbi" align="middle">
+                        <div class="carousel-caption" style="background-color:#000;font-family:cursive;float:right;margin:0px;border-radius:10px;opacity:0.8;">
+                            <h4>Web Developer - Office of Provost - USC</h4>
+                            <p>Jan 2016 - Jan 2017</p>
+                         </div>
+                </div>
+
+                <div class="item" style="height:600px;">
+                  <img src="Images/volvoTrucks.jpg"  height="400px" width="100%" alt="Volvo" align="middle">
+                        <div class="carousel-caption" style="background-color:#000;font-family:cursive;float:right;margin:0px;border-radius:10px;opacity:0.8;">
+                            <h4>Application Developer - Senior Enginer - Volvo IT</h4>
+                            <p>Oct 2011 - Jul 2015</p>
+                         </div>
+                </div>
+                  
+                 <div class="item" style="height:600px;">
+                  <img src="Images/NewHorizon.jpg" width="100%" height="100%" alt="NHCE" align="middle">
+                        <div class="carousel-caption" style="background-color:#000;font-family:cursive;float:right;margin:0px;border-radius:10px;opacity:0.8;">
+                            <h4>Bachelor of Engineering - Computer Science - NHCE</h4>
+                            <p>Sep 2007 - Jun 2011</p>
+                         </div>
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+        </div>
+                </div>
+            </div>
+        </div>
+        </section>
+</div>
+<div class="col-md-12">
+        <section class="education" id="education" style="text-align:center;">
+                <div class="col-lg-12 text-center" style="padding-top:30px;">
+                    <h2 class="section-heading wow animated fadeInRight" style="font-family:cursive;font-size:50px;color:white;">Projects</h2>
+                    <hr class="light wow animated bounceInDown" style="border-width: 3px;max-width: 50px;">
+                    <div class="col-lg-12 text-center"  style="height:400px;margin-top:20px;">
+                        <ul class="nav nav-tabs wow animated fadeInLeft" id="educationalOptions" style="border-radius:20px;">
+                    <li class="active"><a data-toggle="tab" href="#ir"><span class="glyphicon glyphicon-search"></span> Information Retreival</a></li>
+                    <li><a data-toggle="tab" href="#ma"><span class="glyphicon glyphicon-phone"></span> Weather Android Application</a></li>
+                    <li><a data-toggle="tab" href="#rd"><span class="glyphicon glyphicon-globe"></span> Responsive Website Design</a></li>
+                    <li><a data-toggle="tab" href="#gpr"><span class="glyphicon glyphicon-compressed"></span> GPR Image Compression</a></li>
+                </ul>
+                <div class="tab-content wow animated rubberBand" style="margin-top:50px;border-bottom:0;">
+                  <div id="ir" class="tab-pane fade in active">
+                    <br /><h2 style="font-size:50px;">Information Retrieval</h2><br />
+                    <ul style="font-size:23px;text-align:justify;padding-bottom:20px;">
+                        <li style="padding-bottom:10px;">Configured and compiled a Java Web Crawler ‘crawler4j’ and used it to crawl/analyse USC School of Cinematic Arts website.</li>
+                        <li style="padding-bottom:10px;">Worked on Apache Solr to analyse the default Lucene and Page Rank algorithms, built cores to analyse XML/JSON results.</li>
+                        <li style="padding-bottom:10px;">Used NetworkX Graph packages to design a Python script for determining the Page Rank scores for all the crawled URL’s.</li>
+                        <li style="padding-bottom:10px;">Built an HTML5 UI and implemented additional features such as spell-check, auto-correct, etc. (PHP) to enhance Apache Solr.</li>
+                        <li style="padding-bottom:10px;">Analysed Google and Bing Search Engines for informational/navigational queries to calculate relevancy, result overlap, etc.</li>
+                      </ul>
+                  </div>
+                  <div id="ma" class="tab-pane fade">
+                    <br /><h2 style="font-size:50px;">Weather Android Application</h2><br />
+                    <ul style="font-size:23px;text-align:justify;padding-bottom:20px;">
+                        <li style="padding-bottom:10px;">Developed a Weather Android App using Android Studio, API’s for weather information and various SDK’s for Android. </li>
+                        <li style="padding-bottom:10px;">Added Social Networking features using Facebook SDK which involved sharing and posting weather information. </li>
+                        <li style="padding-bottom:10px;">Used the AERIS Weather SDK which is built on top of Google Maps to track forecast and live weather patterns. </li>
+                        <li style="padding-bottom:10px;">Used Google Geocode API and forecast.io API to fetch weather information in the JSON format (DOM Parsing).</li>
+                        <li style="padding-bottom:10px;">Added some of the latest Android SDK features in the UI such as local storage, swipe sensors, etc.</li>
+                      </ul>
+                  </div>
+                  <div id="rd" class="tab-pane fade">
+                    <br /><h2 style="font-size:50px;">Responsive Website Design</h2><br />
+                    <ul style="font-size:23px;text-align:justify;padding-bottom:20px;">
+                        <li style="padding-bottom:10px;">Used a combination of HTML5, CSS3, JavaScript, Ajax, DOM, PHP and JSON to build a responsive weather web application.</li>
+                        <li style="padding-bottom:10px;">Used Bootstrap and JQuery UI to enhance user experience and deployed it on the AWS cloud using AWS Elastic Beanstalk. </li>
+                        <li style="padding-bottom:10px;">Performed Asynchronous data retrieval using XMLHttpRequest and used Google Maps Geocoding API and Forecast.io API.</li>
+                        <li style="padding-bottom:10px;">Provided an interface to perform Weather forecast search (using API’s) and post details to Facebook using Facebook API.</li>
+                        <li style="padding-bottom:10px;">Used Animate.css to introduce animations to the website by using sections and scroll movements.</li>
+                      </ul>
+                  </div>
+                  <div id="gpr" class="tab-pane fade">
+                    <br /><h2 style="font-size:50px;">GPR Image Compression</h2><br />
+                    <ul style="font-size:23px;text-align:justify;padding-bottom:20px;">
+                        <li style="padding-bottom:10px;">Carried out in DRDO (Defence Research and Development Organization), Bangalore.</li>
+                        <li style="padding-bottom:10px;">Designed 4 techniques for compressing Ground Penetrating Radar (GPR) Images and implemented the same using C Language. </li>
+                        <li style="padding-bottom:10px;">Compared the Data Compression ratios and Time complexities of each of the algorithms, and identified the most suitable technique.</li>
+                        <li style="padding-bottom:10px;">Used MATLAB to convert the GPR images to an easily retreival binary format for analyzing algorithms.</li>
+                        <li style="padding-bottom:10px;">Gave presentations to DRDO as well as in College to explicate our findings.</li>
+                      </ul>
+                  </div>
+                </div>
+
+            </div>
+        </div>
+                
+        </section>
+</div>
+<div class="col-md-12">
+        <section id="work">
+                <div class="col-lg-12 text-center" style="padding-top:30px;">
+                    <h2 class="section-heading wow animated fadeInLeft" style="font-family:cursive;font-size:50px;color:white;">Work Experience</h2>
+                    <hr class="light wow animated bounceInDown" style="border-width: 3px;max-width: 50px;">
+                    <div class="col-lg-12 text-center"  style="height:400px;margin-top:20px;">
+                        <ul class="nav nav-tabs wow animated fadeInRight" id="educationalOptions" style="border-radius:20px;">
+                    <li class="active"><a data-toggle="tab" id="rupertLink" href="#rupert"><span class="glyphicon glyphicon-globe"></span>RupertBot - Feb 2017 to Apr 2017</a></li>
+                    <li><a data-toggle="tab" id="wdLink" href="#wd"><span class="glyphicon glyphicon-globe"></span>USC - Jan 2016 to Jan 2017</a></li>
+                    <li><a data-toggle="tab" id="vitLink" href="#vit"><span class="glyphicon glyphicon-globe"></span>Volvo IT - Oct 2011 to Jul 2015</a></li>
+                </ul>
+                <div class="tab-content wow animated rubberBand"  style="margin-top:50px;border-bottom:0;">
+                <div id="rupert" class="tab-pane fade in active">
+                    <br /><h2 style="font-size:50px;">Software Engineer Intern - RupertBot</h2><br />
+                    <ul style="font-size:23px;text-align:justify;padding-bottom:20px;">
+                        <li style="padding-bottom:10px;">Worked on building conversational interfaces using NodeJS, MongoDB, JQuery, PhantomJS, JavaScript, HTML5 and CSS3. </li>
+                        <li style="padding-bottom:10px;">Worked with NodeJS based services involving API invocations to call NLP-based logic for the above mentioned interfaces.</li>
+                        <li style="padding-bottom:10px;">Worked on building bots for e-commerce based customers and integrated them with Facebook Messenger, Slack, etc.</li>
+                      </ul>
+                  </div>
+                  <div id="wd" class="tab-pane fade">
+                    <br /><h2 style="font-size:50px;">Web Developer - USC</h2><br />
+                    <ul style="font-size:23px;text-align:justify;padding-bottom:20px;">
+                        <li style="padding-bottom:10px;">Developed websites for various schools in USC using C# - MVC front-end, Entity Framework back-end and MS SQL Server.</li>
+                        <li style="padding-bottom:10px;">Worked with frameworks/technologies such as HTML5, CSS3, Bootstrap, JavaScript, Ajax and JQuery.</li>
+                        <li style="padding-bottom:10px;">Made use of JQuery UI to bring in some new features into the websites developed.</li>
+                        <li style="padding-bottom:10px;">Worked with third party controls such as Kendo UI and Telerik controls for displaying grids, calendars, charts, etc.</li>
+                        <li style="padding-bottom:10px;">Lead a group of 5 students - involved with assigning tasks, handling deliveries on time and fixing unattended issues.</li>
+                      </ul>
+                  </div>
+                  <div id="vit" class="tab-pane fade">
+                    <br /><h2 style="font-size:50px;">Senior Engineer - Volvo IT</h2><br />
+                    <ul style="font-size:23px;text-align:justify;padding-bottom:20px;">
+                        <li style="padding-bottom:10px;">Was involved with C# - .NET based projects - Global Inbound Logistics Management – GILM and Volvo Truck Order Management – VTOM. </li>
+                        <li style="padding-bottom:10px;">Followed Agile and Scrum Methodologies and Processes along with Sprint based Application Development processes. </li>
+                        <li style="padding-bottom:10px;">Worked on technologies/frameworks such as JavaScript, JQuery, Ajax, NHibernate, MVC (Model-View-Controller), Web Services, ADO .NET, ASP .NET, Unit Testing (Moq), and Parallel Programming (to handle high volume DB Transactions).</li>
+                        <li style="padding-bottom:10px;">Specified Change Requests and Business Specifications by interacting with the Business Solution Leads of different sites.</li>
+                        <li style="padding-bottom:10px;">Was involved in a group project (Proof of Concept) where we developed a quiz application to demonstrate the effectiveness of Entity Framework 6 and to explore its new features. Quiz Application had user logins in which multiple users could login.</li>
+                      </ul>
+                  </div>
+            </div>
+        </div>
+                 </div>   
+        </section>
+
+</div>
+<div class="col-md-12">
+        <section id="contact" style="height:600px;">
+            <div class="row" style="text-align:center;">
+            <div class="col-md-12">
+                <h2 class="section-heading wow animated bounceInDown" style="font-family:cursive;font-size:50px;color:white;">Contact Me</h2>
+                    <hr class="light wow animated bounceInDown" style="border-width: 3px;max-width: 50px;padding-bottom:50px;">
+                <a href="https://www.facebook.com/harish.narayanan.71"><img class="wow animated bounceInLeft" src="Images/facebookIcon.png" height="100px" width="100px"/></a>
+                <a href="https://www.linkedin.com/in/harish-narayanan-38642ab9"><img class="wow animated rubberBand" src="Images/linkedInIcon.png" height="100px" width="100px"/></a>
+                <a href="https://github.com/harnar89"><img class="wow animated bounceInRight" src="Images/githubIcon.png" height="100px" width="100px"/></a>
+            </div>
+                </div>
+        </section>
+</div>
+</div>
+    </body>
+</html>
